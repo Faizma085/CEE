@@ -1,0 +1,56 @@
+Model Card: RandomForestRegressor 
+Model Details
+•	Model Type: RandomForestRegressor (ensemble of decision trees)
+•	Implementation: Python (scikit-learn)
+•	Key Hyperparameters:
+o	n_estimators = 100
+o	max_depth = 10
+o	random_state = 42
+•	Interpretability Method: SHAP (used to evaluate feature importance and dependence)
+Intended Use
+•	Primary Purpose:
+Predict monthly IWR and CWR for maize, rice, and wheat based on:
+1.	CDI
+2.	Temporal features (month, year)
+•	Users/Stakeholders:
+o	Agricultural researchers
+o	Water resource managers and decision-makers
+o	Policy analysts interested in irrigation planning under varying drought conditions
+Data
+•	Sources:
+o	CWR and IWR Data: Three NetCDF files (maize, rice, wheat) covering 2000–2020
+o	Drought Index (CDI): A NetCDF file (same 2000–2020 time range)
+•	Data Processing:
+o	Subsetting each dataset to a common 2000–2020 period
+o	Resampling to monthly means
+o	Removing invalid or placeholder values (e.g., 1e30 replaced with NaN)
+o	Spatially averaging each variable over predefined basin coordinates
+o	Merging time series (CWR/IWR and CDI) per basin, then adding month and year features
+Model Training & Evaluation
+•	Training/Validation Split: 80% training, 20% test, random split by time points in each basin’s dataset
+•	Cross-Validation: 5-fold cross-validation on the training set to evaluate R²
+•	Performance Metrics:
+o	R² (coefficient of determination)
+o	MSE (mean squared error)
+•	SHAP Analysis:
+o	Used to assess the importance and interaction of features (CDI, month, year) in predicting IWR
+Results (Illustrative)
+•	R² (CV): Varies by basin and crop, typically between 0.6–0.9 (example range)
+•	R² (Test Set): Similar or slightly reduced compared to cross-validation scores
+•	MSE: Depends on the absolute range of each basin’s CWR/IWR values
+Limitations
+1.	Data Dependence: Accuracy relies on the quality and representativeness of NetCDF CWR/ IWR and CDI data.
+2.	Geographical Scope: Model is trained on specific basins; generalization to other regions/timeframes may be uncertain.
+3.	Feature Set: Only three predictors (CDI, month, year). Including more environmental or management features might improve performance.
+4.	Temporal Split: Random splitting by time might overlook sequential dependencies (e.g., year-to-year variations).
+Ethical & Societal Considerations
+•	Resource Allocation: Predictions can guide irrigation decisions affecting water resource allocation; results should be contextualized with local expertise.
+•	Data Gaps: Regions with sparse data or atypical conditions might see reduced prediction accuracy.
+Maintenance & Updates
+•	Maintainer: Authors
+•	Future Updates:
+o	Integrate new data or longer time spans for improved accuracy
+o	Re-tune model hyperparameters as more training data become available
+•	Citation:
+o	Cite scikit-learn and original data sources (e.g., NetCDF datasets, any references for CDI) in any publications
+
