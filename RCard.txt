@@ -47,10 +47,10 @@ Ethical & Societal Considerations
 •	Resource Allocation: Predictions can guide irrigation decisions affecting water resource allocation; results should be contextualized with local expertise.
 •	Data Gaps: Regions with sparse data or atypical conditions might see reduced prediction accuracy.
 Maintenance & Updates
-•	Maintainer: Authors
+•	Maintainer: Authors (1st authors)
 •	Future Updates:
 o	Integrate new data or longer time spans for improved accuracy
 o	Re-tune model hyperparameters as more training data become available
-•	Citation:
+•	Citation: Made available after publication acceptance 
 o	Cite scikit-learn and original data sources (e.g., NetCDF datasets, any references for CDI) in any publications
 
