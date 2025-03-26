@@ -4,8 +4,7 @@
 
 ```
 ├── README.md                 # This file
-├── environment.yml or requirements.txt
-├── data/                     # Example NetCDF input files
+├── data/                     # NetCDF input files (mentioned in datasources)
 └── scripts/                  # Jupyter notebooks
     ├── WB_MRAI_CEE.ipynb
     ├── Global_MI_CDI_CEE.ipynb
