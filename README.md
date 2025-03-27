@@ -30,7 +30,7 @@ These analyses can be computationally intensive, especially for large spatiotemp
   - GPU: **NVIDIA RTX 3060** (Lenovo system)  
   - RAM: **128 GB**  
 - **Recommendations**:  
-  - **RAM**: At least 32 GB recommended for large multi-year, global NetCDF datasets.  
+  - **RAM**: At least 64 GB recommended for large multi-year, global NetCDF datasets.  
   - **GPU**: A dedicated GPU (such as an RTX series) accelerates certain operations, especially Random Forest or other machine learning tasks, though CPU-based runs are possible.  
   - **Storage**: Sufficient disk space for storing multiple NetCDF files (which can be large).  
   - **CPU**: Multi-core processor (e.g., 8+ cores) can speed up data pre-processing.
